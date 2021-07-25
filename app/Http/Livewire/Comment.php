@@ -8,7 +8,7 @@ use Carbon\Carbon;
 class Comment extends Component
 {    
     public $newComment = '';
-
+    
     public $comments = [
         
         [
@@ -22,6 +22,7 @@ class Comment extends Component
     {   
         return view('livewire.comment');
     }
+
 
     public function addComments()
     {

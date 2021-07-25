@@ -1,17 +1,20 @@
 <div class="col-sm-4 col-sm-offset-4">
-   
-      
+    
+    
+    <form wire:submit.prevent="addComments">
+
       <div class="form-group">
 
         <br>
         <label>Comment</label>
-        <input type="text" class="form-control" placeholder="Hit Your Comment" wire:model="newComment">
+        <input type="text" class="form-control" placeholder="Hit Your Comment" wire:model.lazy="newComment">
 
         <br>
-        <button class="btn btn-primary" wire:click="addComments">Submit</button>
+        <button class="btn btn-primary" type="submit">Submit</button>
 
       </div>
 
+    </form>
     
       @foreach($comments as $comment)
       <nav class="navbar navbar-default">
