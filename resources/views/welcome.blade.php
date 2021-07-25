@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>Laravel LiveWire</title>
@@ -9,9 +10,9 @@
 </head>
 <body>
 
-   
-    @livewire('comment')
+    <livewire:comment />
 
     @livewireScripts
+    
 </body>
 </html>

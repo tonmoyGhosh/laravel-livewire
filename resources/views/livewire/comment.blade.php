@@ -8,6 +8,7 @@
         <br>
         <label>Comment</label>
         <input type="text" class="form-control" placeholder="Hit Your Comment" wire:model.lazy="newComment">
+        @error('newComment') <span class="error" style="color: red">{{ $message }}</span><br> @enderror
 
         <br>
         <button class="btn btn-primary" type="submit">Submit</button>
@@ -16,7 +17,7 @@
 
     </form>
     
-      @foreach($comments as $comment)
+    @foreach($comments as $comment)
       <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -25,8 +26,6 @@
             </div>
         </div>
       </nav>
-      @endforeach
+    @endforeach
       
-      
-    
 </div>
