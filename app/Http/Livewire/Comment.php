@@ -10,7 +10,6 @@ use App\Models\Comment as CommentModel;
 class Comment extends Component
 {    
     public $newComment = '';
-    public $comments = [];
 
     protected $rules = [
         'newComment' => 'required'
@@ -20,15 +19,10 @@ class Comment extends Component
         'newComment.required' => 'The Comment Cannot Be Empty.'
     ];
 
-    public function mount()
-    {   
-        $allComments = CommentModel::latest()->get();
-        $this->comments = $allComments;
-    }
-   
     public function render()
     {   
-        return view('livewire.comment');
+        $comments = CommentModel::latest()->paginate(2);
+        return view('livewire.comment', compact('comments'));
     }
 
     public function addComments()
@@ -39,7 +33,7 @@ class Comment extends Component
         $addComment->body = $this->newComment;
         $addComment->save();
 
-        $this->comments->prepend($addComment);
+        // $this->comments->prepend($addComment);
 
         $this->newComment = '';
 
@@ -51,7 +45,7 @@ class Comment extends Component
         $commentDelete = CommentModel::find($commentId);
         $commentDelete->delete();
 
-        $this->comments = $this->comments->except($commentId);
+        // $this->comments = $this->comments->except($commentId);
 
         session()->flash('message', 'Comment successfully deleted');
     }
