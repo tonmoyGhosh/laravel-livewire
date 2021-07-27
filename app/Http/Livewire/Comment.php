@@ -42,5 +42,17 @@ class Comment extends Component
         $this->comments->prepend($addComment);
 
         $this->newComment = '';
+
+        session()->flash('message', 'Comment successfully added');
+    }
+
+    public function removeComment($commentId)
+    {   
+        $commentDelete = CommentModel::find($commentId);
+        $commentDelete->delete();
+
+        $this->comments = $this->comments->except($commentId);
+
+        session()->flash('message', 'Comment successfully deleted');
     }
 }
