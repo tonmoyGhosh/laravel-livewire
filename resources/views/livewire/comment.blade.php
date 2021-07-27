@@ -1,5 +1,6 @@
 <div class="col-sm-4 col-sm-offset-4">
     
+    
     <form wire:submit.prevent="addComments">
 
       <div class="form-group">

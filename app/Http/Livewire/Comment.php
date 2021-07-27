@@ -6,11 +6,10 @@ use Livewire\Component;
 use Carbon\Carbon;
 use App\Models\Comment as CommentModel;
 
-
 class Comment extends Component
 {    
     public $newComment = '';
-
+    
     protected $rules = [
         'newComment' => 'required'
     ];
